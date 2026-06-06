@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Productivity To-Do List
 
-## Getting Started
+Personal daily planner web app for managing tasks with categories, priorities, and subtasks.
 
-First, run the development server:
+## Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4
+- **State**: Zustand v5 (persisted to localStorage)
+- **Font**: Montserrat via `next/font/google`
+- **Icons**: Lucide React
+- **Language**: TypeScript
+
+## Setup
+
+```bash
+npm install
+```
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Next.js App Router (layout, page, globals.css)
+├── components/
+│   ├── ui/           # Atoms: Checkbox, Chip, Button, Input, Icon
+│   ├── layout/       # Header, TodayStrip, WeekChart, StatRow
+│   ├── tasks/        # TaskTabs, TaskFilters, TaskCard, TaskList, TaskModal
+│   └── subtasks/     # SubtaskItem, SubtaskInput
+├── store/            # Zustand store (useTaskStore)
+├── hooks/            # useFilteredTasks, useStats, useGreeting
+├── constants/        # categories, priorities, quotes
+├── types/            # TypeScript interfaces
+└── utils/            # date helpers, uid generator
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Add tasks with category, priority, due date, notes, and subtasks
+- Today / Upcoming / Overdue / Done / All views
+- Search and filter by category & priority
+- Weekly bar chart and progress ring
+- Data persisted to localStorage — survives page refresh
+# todo-app
